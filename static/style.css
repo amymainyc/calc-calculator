@@ -1,0 +1,39 @@
+html, body {
+  height: 100%;
+  width: 100%;
+  text-align: center;
+}
+
+.flex-container{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.row{
+  white-space: nowrap
+}
+
+.buttons {
+  justify-content: space-around;
+  align-items: center;
+  margin-left: 300px;
+  margin-right: 300px;
+}
+
+.numbers, .operations, .stuff, .control{
+  flex-direction: column;
+  width: 100px;
+}
+
+#input {
+  border: solid;
+  padding: 5px;
+  margin: auto;
+  text-align: right;
+  width: 300px;
+}
+
+[type="submit"] { 
+  color: white;
+  background-color: black;
+}
