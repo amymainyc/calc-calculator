@@ -1,10 +1,22 @@
+function calculate(f):
+
 function eval() {
-	let evalInput = document.getElementById("eval1").value
-  fetch(`eval/${evalInput}`)
+	let input = document.getElementById("eval").value
+  fetch(`eval/${input}`)
 	.then(response => response.text())
 	.then(answer => {
 		let ansBox = document.getElementById("ansbx")
-		ansBox.value = answer
+		ansBox.innerHTML = answer
 	})
-};
+}
+
+function sin() {
+	let input = document.getElementById("sin").value
+  fetch(`sin/${input}`)
+	.then(response => response.text())
+	.then(answer => {
+		let ansBox = document.getElementById("ansbx")
+		ansBox.innerHTML = answer
+	})
+}
 
