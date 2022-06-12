@@ -1,4 +1,4 @@
-function calculate(f):
+function calculate(f) {}
 
 function eval() {
 	let input = document.getElementById("eval").value
