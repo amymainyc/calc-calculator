@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Calculator!</title>
+  <link href="static/style.css" rel="stylesheet" type="text/css" />
+	<script src="static/script.js"></script>
+</head>
+
+<body>
+  <br><br>
+  <h1 id="">Calculator!</h1>
+
+  <div class="instructions">
+    A recreation of the functions of a scientific calculator.
+    <br><b>Instructions:</b> Input the specified parameters in the box separated by commas and then click the "Calculate" button or press ENTER. 
+    <br>(e=equation n=number lrm=choose l/r/m (left/right/midpoint) *=optional parameter)
+  </div>
+
+  <div id="navigation">
+    <input type="button" value="Buttons" onclick="navigate('buttons')">&nbsp;
+    <input type="button" value="Calculus" onclick="navigate('calculus')">&nbsp;
+    <input type="button" value="Graph" onclick="navigate('graphing')">&nbsp;
+    <input type="button" value="Other" onclick="navigate('other')">
+  </div>
+
+  <div id="dynHTML">
+    
+  </div>
+
+</body>
+
+</html>

@@ -1,22 +1,27 @@
-function calculate(f) {}
-
-function eval() {
-	let input = document.getElementById("eval").value
-  fetch(`eval/${input}`)
-	.then(response => response.text())
-	.then(answer => {
-		let ansBox = document.getElementById("ansbx")
-		ansBox.innerHTML = answer
-	})
+function navigate(page) {
+  fetch(page)
+  .then(response => response.text())
+  .then(data => {
+    let content = document.getElementById("dynHTML")
+    content.innerHTML = data
+  })
 }
 
-function sin() {
-	let input = document.getElementById("sin").value
-  fetch(`sin/${input}`)
-	.then(response => response.text())
-	.then(answer => {
-		let ansBox = document.getElementById("ansbx")
-		ansBox.innerHTML = answer
-	})
+function calculate(f, event) {
+  if (event == undefined || event.keyCode == 13) {
+    let input = document.getElementById(f).value
+    if (!input) input = "undefined"
+    fetch(`${f}/${input}`)
+    .then(response => {
+      if (response.ok) {
+        return response.text()
+      } else {
+        return "Error!"
+      }
+    })
+    .then(answer => {
+      let answerBox = document.getElementById("answerBox")
+		  answerBox.innerHTML = answer;
+    })
+  }
 }
-

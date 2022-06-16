@@ -2,7 +2,8 @@ from functions.calculus import *
 from functions.graph import *
 from functions.other import *
 
-def sqrt(s):
+def sqrt(i):
+  s = i[0]
   if s <= 0: 
     return "Please enter a positive value."
   x = s/2 # initial guess
@@ -11,80 +12,90 @@ def sqrt(s):
   return x
 
 
-def fact(n):
+def fact(i):
+  n = i[0]
   if n < 2:
     return 1
-  return n * fact(n-1)
+  return n * fact([n-1])
 
 
-def sin(theta):
-  a = pow(-1, 0) * pow(theta, 2*0+1) / fact(2*0+1)
-  b = pow(-1, 1) * pow(theta, 2*1+1) / fact(2*1+1)
+def sin(i):
+  theta = float(i[0])
+  a = pow(-1, 0) * pow(theta, 2*0+1) / fact([2*0+1])
+  b = pow(-1, 1) * pow(theta, 2*1+1) / fact([2*1+1])
   sum = a + b
   n = 2
   while abs(a-b) > 0.00001:
     a = b
-    b = pow(-1, n) * pow(theta, 2*n+1) / fact(2*n+1)
+    b = pow(-1, n) * pow(theta, 2*n+1) / fact([2*n+1])
     sum += b
     n += 1
   return sum
 
 
-def cos(theta):
-	a = pow(-1, 0) * pow(theta, 2*0) / fact(2*0)
-	b = pow(-1, 1) * pow(theta, 2*1) / fact(2*1)
+def cos(i):
+	theta = float(i[0])
+	a = pow(-1, 0) * pow(theta, 2*0) / fact([2*0])
+	b = pow(-1, 1) * pow(theta, 2*1) / fact([2*1])
 	sum = a + b
 	n = 2
 	while abs(a-b) > 0.00001:
 		a = b
-		b = pow(-1, n) * pow(theta, 2*n) / fact(2*n)
+		b = pow(-1, n) * pow(theta, 2*n) / fact([2*n])
 		sum += b
 		n += 1
 	return sum
 
 
-def tan(theta):
-	return sin(theta) / cos(theta)
+def tan(i):
+	theta = i[0]
+	return sin([theta]) / cos([theta])
 
 
-def csc(theta):
-  return 1 / sin(theta)
+def csc(i):
+  theta = i[0]
+  return 1 / sin([theta])
 
 
-def sec(theta):
-  return 1 / cos(theta)
+def sec(i):
+  theta = i[0]
+  return 1 / cos([theta])
   
 
-def cot(theta):
-  return cos(theta) / sin(theta)
+def cot(i):
+  theta = float(i[0])
+  return cos([theta]) / sin([theta])
 
 
 def e():
-  a = 1 / fact(0) * pow(1, 0)
-  b = 1 / fact(1) * pow(1, 1)
+  a = 1 / fact([0]) * pow(1, 0)
+  b = 1 / fact([1]) * pow(1, 1)
   sum = a + b
   n = 2
   while abs(a-b) > 0.0000001 or a-b == 0:
     a = b
-    b = 1 / fact(n) * pow(1, n)
+    b = 1 / fact([n]) * pow(1, n)
     sum += b
     n += 1
   return sum
 
-def e_x(x):
+def e_x(i):
+  x = i[0]
   return pow(e(), x)
 
 
-def ln(x):
+def ln(i):
+	x = i[0]
 	if x <= 0:
 		return "x must be > 0."
-	return integral("1/x", 1, x)
+	return integral(["1/x", 1, x])
 	
 
-def log(a, b):
+def log(i):
+  a, b = i[0], i[1]
   if a <= 0 or b <= 0:
     return "inputs must both be positive"
-  return ln(b) / ln(a)
+  return ln([b]) / ln([a])
   # returns log of b with base a
 
 
@@ -102,34 +113,42 @@ def pi():
   return 3 + 4 * sum
 
 
-def arcsin(x):
-	if not x <= 1 and x >= -1:
+def arcsin(i):
+	x = float(i[0])
+	if not (x <= 1 and x >= -1):
 		return "x must be between -1 and 1."
-	return integral("1/((1-x**2)**0.5)", 0, x)
+	return integral(["1/((1-x**2)**0.5)", 0, x])
 
 
-def arccos(x):
-  if not x <= 1 and x >= -1:
+def arccos(i):
+  x = float(i[0])
+  if not (x <= 1 and x >= -1):
     return "x must be between -1 and 1."
-    return -(arcsin(x))
+  return pi()/2 -(arcsin([x]))
 
   
-def arctan(x):
-	return integral("1/(1+x**2)", 0, x)
+def arctan(i):
+	x = float(i[0])
+	return integral(["1/(1+x**2)", 0, x])
 
 
-def arccot(x):
-	return -(arctan(x))
+def arccot(i):
+	x = float(i[0])
+	return pi()/2 -(arctan([x]))
 
 
-def arcsec(x):
+def arcsec(i):
+  # 
+	x = float(i[0])
 	# this one takes a very long time 
-	if not x >= 1 or x <= -1:
+	if not (x >= 1 or x <= -1):
 		return "x must be between less than -1 or greater than 1."
-	return integral("1/(x*((x**2-1)**0.5))", 1, abs(x))
+	return arccos([1/x])
 
 
-def arccsc(x):
-	if not x >= 1 or x <= -1:
+def arccsc(i):
+  # 
+	x = float(i[0])
+	if not (x >= 1 or x <= -1):
 		return "x must be between less than -1 or greater than 1."
-	return -(arcsec(x))
+	return arcsin([1/x])

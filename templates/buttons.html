@@ -1,0 +1,190 @@
+<div id="answerBox"></div> 
+
+<div class="flex-container input">
+  <div class="flex-container collumn">
+    <div class="row text">
+      eval(e)
+    </div>
+    <div class="row text">
+      sqrt(n)
+    </div>
+    <div class="row text">
+      fact(n)
+    </div>
+    <div class="row text">
+      sin(n)
+    </div>
+    <div class="row text">
+      cos(n)
+    </div>
+    <div class="row text">
+      tan(n)
+    </div>
+    <div class="row text">
+      csc(n)
+    </div>
+    <div class="row text">
+      sec(n)
+    </div>
+    <div class="row text">
+      cot(n)
+    </div>
+    <div class="row text">
+      e()
+    </div>
+    <div class="row text">
+      e_x(n)
+    </div>
+    <div class="row text">
+      ln(n)
+    </div>
+    <div class="row text">
+      log(n_base, n)
+    </div>
+    <div class="row text">
+      pi()
+    </div>
+    <div class="row text">
+      arcsin(n)
+    </div>
+    <div class="row text">
+      arccos(n)
+    </div>
+    <div class="row text">
+      arctan(n)
+    </div>
+    <div class="row text">
+      arccot(n)
+    </div>
+    <div class="row text">
+      arcsec(n)
+    </div>
+    <div class="row text">
+      arccsc(n)
+    </div>
+  </div>
+  <div class="flex-container collumn">
+    <div class="row">
+      <input type="text" id="eval" value="" onKeyPress="return calculate('eval', event)">
+    </div>
+    <div class="row">
+      <input type="text" id="sqrt" value="" onKeyPress="return calculate('sqrt', event)">
+    </div>
+    <div class="row">
+      <input type="text" id="fact" value="" onKeyPress="return calculate('fact', event)">
+    </div>
+    <div class="row">
+      <input type="text" id="sin" value="" onKeyPress="return calculate('sin', event)">
+    </div>
+    <div class="row">
+      <input type="text" id="cos" value="" onKeyPress="return calculate('cos', event)">
+    </div>
+    <div class="row">
+      <input type="text" id="tan" value="" onKeyPress="return calculate('tan', event)">
+    </div>
+    <div class="row">
+      <input type="text" id="csc" value="" onKeyPress="return calculate('csc', event)">
+    </div>
+    <div class="row">
+      <input type="text" id="sec" value="" onKeyPress="return calculate('sec', event)">
+    </div>
+    <div class="row">
+      <input type="text" id="cot" value="" onKeyPress="return calculate('cot', event)">
+    </div>
+    <div class="row">
+      <input type="text" id="e" value="" onKeyPress="return calculate('e', event)">
+    </div>
+    <div class="row">
+      <input type="text" id="e_x" value="" onKeyPress="return calculate('e_x', event)">
+    </div>
+    <div class="row">
+      <input type="text" id="ln" value="" onKeyPress="return calculate('ln', event)">
+    </div>
+    <div class="row">
+      <input type="text" id="log" value="" onKeyPress="return calculate('log', event)">
+    </div>
+    <div class="row">
+      <input type="text" id="pi" value="" onKeyPress="return calculate('pi', event)">
+    </div>
+    <div class="row">
+      <input type="text" id="arcsin" value="" onKeyPress="return calculate('arcsin', event)">
+    </div>
+    <div class="row">
+      <input type="text" id="arccos" value="" onKeyPress="return calculate('arccos', event)">
+    </div>
+    <div class="row">
+      <input type="text" id="arctan" value="" onKeyPress="return calculate('arctan', event)">
+    </div>
+    <div class="row">
+      <input type="text" id="arccot" value="" onKeyPress="return calculate('arccot', event)">
+    </div>
+    <div class="row">
+      <input type="text" id="arcsec" value="" onKeyPress="return calculate('arcsec', event)">
+    </div>
+    <div class="row">
+      <input type="text" id="arccsc" value="" onKeyPress="return calculate('arccsc', event)">
+    </div>
+  </div>
+  <div class="flex-container collumn">
+    <div class="row calcButton">
+      <input type="button" value="Calculate" onclick="calculate('eval')">
+    </div>
+    <div class="row calcButton">
+      <input type="button" value="Calculate" onclick="calculate('sqrt')">
+    </div>
+    <div class="row calcButton">
+      <input type="button" value="Calculate" onclick="calculate('fact')">
+    </div>
+    <div class="row calcButton">
+      <input type="button" value="Calculate" onclick="calculate('sin')">
+    </div>
+    <div class="row calcButton">
+      <input type="button" value="Calculate" onclick="calculate('cos')">
+    </div>
+    <div class="row calcButton">
+      <input type="button" value="Calculate" onclick="calculate('tan')">
+    </div>
+    <div class="row calcButton">
+      <input type="button" value="Calculate" onclick="calculate('csc')">
+    </div>
+    <div class="row calcButton">
+      <input type="button" value="Calculate" onclick="calculate('sec')">
+    </div>
+    <div class="row calcButton">
+      <input type="button" value="Calculate" onclick="calculate('cot')">
+    </div>
+    <div class="row calcButton">
+      <input type="button" value="Calculate" onclick="calculate('e')">
+    </div>
+    <div class="row calcButton">
+      <input type="button" value="Calculate" onclick="calculate('e_x')">
+    </div>
+    <div class="row calcButton">
+      <input type="button" value="Calculate" onclick="calculate('ln')">
+    </div>
+    <div class="row calcButton">
+      <input type="button" value="Calculate" onclick="calculate('log')">
+    </div>
+    <div class="row calcButton">
+      <input type="button" value="Calculate" onclick="calculate('pi')">
+    </div>
+    <div class="row calcButton">
+      <input type="button" value="Calculate" onclick="calculate('arcsin')">
+    </div>
+    <div class="row calcButton">
+      <input type="button" value="Calculate" onclick="calculate('arccos')">
+    </div>
+    <div class="row calcButton">
+      <input type="button" value="Calculate" onclick="calculate('arctan')">
+    </div>
+    <div class="row calcButton">
+      <input type="button" value="Calculate" onclick="calculate('arccot')">
+    </div>
+    <div class="row calcButton">
+      <input type="button" value="Calculate" onclick="calculate('arcsec')">
+    </div>
+    <div class="row calcButton">
+      <input type="button" value="Calculate" onclick="calculate('arccsc')">
+    </div>
+  </div>
+</div>

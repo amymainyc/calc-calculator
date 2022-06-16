@@ -1,26 +1,28 @@
 from functions.buttons import *
 from functions.graph import *
 from functions.other import *
-
-def derivative(function, x):
+#:D
+def derivative(i):
+  function, x = i[0], i[1]
   h = 0.0000000000001
   return (eval(function.replace("x", "(x+h)")) - eval(function)) / h
 
 
-def integral(function, x1, x2):
+def integral(i):
+	function, x1, x2 = i[0], i[1], i[2]
 	intervals = 10
-	sum1 = reimannSum(function, x1, x2, intervals, "m")
+	sum1 = reimannSum([function, x1, x2, intervals, "m"])
 	intervals += 10
-	sum2 = reimannSum(function, x1, x2, intervals, "m")
+	sum2 = reimannSum([function, x1, x2, intervals, "m"])
 	while abs(sum2-sum1) > 0.00001:
 		sum1 = sum2
 		intervals += 10
-		sum2 = reimannSum(function, x1, x2, intervals, "m")
-		# print(sum2)
+		sum2 = reimannSum([function, x1, x2, intervals, "m"])
 	return sum2
 
 
-def reimannSum(function, x1, x2, intervals, lrm):
+def reimannSum(i):
+	function, x1, x2, intervals, lrm = i[0], i[1], i[2], i[3], i[4]
 	if x1 == x2:
 		return 0
 	lrm = lrm[0]
@@ -41,7 +43,8 @@ def reimannSum(function, x1, x2, intervals, lrm):
 	return sum
 
 
-def trapezoidSum(function, x1, x2, intervals):
+def trapezoidSum(i):
+	function, x1, x2, intervals = i[0], i[1], i[2], i[3]
 	if x1 == x2:
 		return 0
 	points = [x1]
@@ -58,28 +61,31 @@ def trapezoidSum(function, x1, x2, intervals):
 	return sum
 
 
-def euler(dFunction, x, y, stepsize, predictX):
-  while (x < predictX):
-    change = eval(dFunction)
-    y += change * stepsize
-    x += stepsize
-  return y
+def euler(i):
+	dFunction, x, y, stepsize, predictX = i[0], i[1], i[2], i[3], i[4]
+	while (x < predictX):
+		change = eval(dFunction)
+		y += change * stepsize
+		x += stepsize
+	return y
 
 
-def minVal(function, lo, hi):
-  x = lo
-  mn_x = lo
-  mn_y = eval(function)
-  while x <= hi:
-    if mn_y > eval(function):
-      mn_x = x
-      mn_y = eval(function)
-    x += 0.001
-    x = round(x, 7)
-  return [mn_x, mn_y]
+def minVal(i):
+	function, lo, hi = i[0], i[1], i[2]
+	x = lo
+	mn_x = lo
+	mn_y = eval(function)
+	while x <= hi:
+		if mn_y > eval(function):
+			mn_x = x
+			mn_y = eval(function)
+		x += 0.001
+		x = round(x, 7)
+	return [mn_x, mn_y]
 
 
-def maxVal(function, lo, hi):
+def maxVal(i):
+  function, lo, hi = i[0], i[1], i[2]
   x = lo
   mx_x = lo
   mx_y = eval(function)
@@ -92,7 +98,8 @@ def maxVal(function, lo, hi):
   return [mx_x, mx_y]
 
 
-def findZeroes(function, lo, hi):
+def findZeroes(i):
+  function, lo, hi = i[0], i[1], i[2]
   x = lo
   zeroes = []
   while x <= hi:
@@ -104,7 +111,8 @@ def findZeroes(function, lo, hi):
 
   
 #doesn't always work when there are multiple intervals;-;
-def intervalInc(function, lo, hi):
+def intervalInc(i):
+  function, lo, hi = i[0], i[1], i[2]
   x = lo
   test = []
   print(eval(function.replace("x", "(x + 0.01)")))
@@ -122,7 +130,8 @@ def intervalInc(function, lo, hi):
   return interval
 
 
-def intervalDec(function, lo, hi):
+def intervalDec(i):
+  function, lo, hi = i[0], i[1], i[2]
   x = lo
   test = []
   print(eval(function.replace("x", "(x - 0.01)")))
@@ -141,7 +150,8 @@ def intervalDec(function, lo, hi):
 
   
 #only works if the intersections are whole numbers
-def findInter(function1, function2, lo, hi):
+def findInter(i):
+  function1, function2, lo, hi = i[0], i[1], i[2], i[3]
   x = lo
   inter = []
   while x <= hi:

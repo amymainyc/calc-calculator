@@ -2,18 +2,24 @@ from functions.buttons import *
 from functions.calculus import *
 from functions.graph import *
 
+
 def mean(arr):
   sum = 0
-  for i in arr:
-    sum += i
-  return sum / len(arr)
+  for i in arr[:-1]:
+    # last element is ''
+    sum += float(i)
+  return sum / (len(arr)-1)
+
 
 def median(arr):
+  arr = arr[:-1]
+  arr.sort()
   mid = int(len(arr) / 2) - 1
   if len(arr) % 2 == 0:
     return (arr[mid] + arr[mid + 1]) / 2
   else:
     return arr[mid + 1]
+
 
 def mode(arr):
   d = {}
@@ -29,22 +35,28 @@ def mode(arr):
       mxVal = d[i]
   return mxKey
 
-def range(arr):
-  max = arr[0]
-  min = arr[0]
-  for i in range(len(arr)):
-    max = max(max, arr[i])
-    min = min(min, arr[i])
-  return max - min
 
-def sigma(func, a, b):
+def range2(arr):
+  arr = arr[:-1]
+  arr.sort()
+  mx = arr[0]
+  mn = arr[0]
+  for i in range(len(arr)):
+    mx = max(mx, arr[i])
+    mn = min(mn, arr[i])
+  return mx - mn
+
+
+def sigma(i):
+  func, a, b =  i[0], i[1], i[2]
   sum = 0
   for i in range(a, b+1):
-    x = i
     sum += eval(func)
   return sum
 
-def primeFact(n):
+
+def primeFact(i):
+  n = i[0]
   arr = []
   while n > 1:
     i = 2
@@ -57,12 +69,14 @@ def primeFact(n):
   return arr
         
 
-def lcm(a, b):
+def lcm(i):
+  a, b = i[0], i[1]
   prod = abs(a * b)
-  return prod / gcd(a, b)
+  return prod / gcd([a, b])
   
 
-def gcd(a, b):
+def gcd(i):
+  a, b = i[0], i[1]
   big = max(a, b)
   small = min(a, b)
   if big % small == 0:
@@ -75,29 +89,20 @@ def gcd(a, b):
       big /= small
   return gcd
 
-def nPr(n, r):
+
+def nPr(i):
+  n, r = i[0], i[1]
   # returns number of permutations based on a sample of r elements from a set of size n
   return fact(n) / fact(n - r)
 
-def nCr(n, r):
+
+def nCr(i):
+  n, r = i[0], i[1]
   # returns number of unique permutations
   return (fact(n) / (fact(r) * fact(n - r)))
-          
-
-def fact(n):
-  if n < 2:
-    return 1
-  return n * fact(n-1)
-
-def sqrt(s):
-  if s <= 0: 
-    return "Please enter a positive value."
-  x = s/2 # initial guess
-  while abs(s - (x * x)) > 0.00001:
-    x = (x + s/x) / 2
-  return x
   
 
-def distance(x1, y1, x2, y2):
-  return sqrt((x1 - x2) ** 2 + (y1 - y2) ** 2)
+def distance(i):
+  x1, y1, x2, y2 = i[0], i[1], i[2], i[3]
+  return sqrt([(x1 - x2) ** 2 + (y1 - y2) ** 2])
 

@@ -1,0 +1,109 @@
+<div id="answerBox"></div> 
+
+<div class="flex-container input">
+  <div class="flex-container collumn">
+    <div class="row text">
+      derivative(function, x)
+    </div>
+    <div class="row text">
+      integral(function, x_1, x_2)
+    </div>
+    <div class="row text">
+      reimannSum(function, x_1, x_2, intervals, lrm)
+    </div>
+    <div class="row text">
+      trapezoidSum(function, x_1, x_2, intervals)
+    </div>
+    <div class="row text">
+      euler(function, x, y, stepsize, predictX)
+    </div>
+    <div class="row text">
+      minVal(function, lo, hi)
+    </div>
+    <div class="row text">
+      maxVal(function, lo, hi)
+    </div>
+    <div class="row text">
+      findZeroes(function, lo, hi)
+    </div>
+<!--     <div class="row text">
+      intervalInc(function, lo, hi)
+    </div>
+    <div class="row text">
+      intervalDec(function, lo, hi)
+    </div>
+    <div class="row text">
+      findInter(function1, function2, lo, hi)
+    </div> -->
+  </div>
+  <div class="flex-container collumn">
+    <div class="row">
+      <input type="text" id="derivative" value="" onKeyPress="return calculate('derivative', event)">
+    </div>
+    <div class="row">
+      <input type="text" id="integral" value="" onKeyPress="return calculate('integral', event)">
+    </div>
+    <div class="row">
+      <input type="text" id="reimannSum" value="" onKeyPress="return calculate('reimannSum', event)">
+    </div>
+    <div class="row">
+      <input type="text" id="trapezoidSum" value="" onKeyPress="return calculate('trapezoidSum', event)">
+    </div>
+    <div class="row">
+      <input type="text" id="euler" value="" onKeyPress="return calculate('euler', event)">
+    </div>
+    <div class="row">
+      <input type="text" id="minVal" value="" onKeyPress="return calculate('minVal', event)">
+    </div>
+    <div class="row">
+      <input type="text" id="maxVal" value="" onKeyPress="return calculate('maxVal', event)">
+    </div>
+    <div class="row">
+      <input type="text" id="findZeroes" value="" onKeyPress="return calculate('findZeroes', event)">
+    </div>
+<!--     <div class="row">
+      <input type="text" id="intervalInc" value="" onKeyPress="return calculate('intervalInc', event)">
+    </div>
+    <div class="row">
+      <input type="text" id="intervalDec" value="" onKeyPress="return calculate('intervalDec', event)">
+    </div>
+    <div class="row">
+      <input type="text" id="findInter" value="" onKeyPress="return calculate('findInter', event)">
+    </div> -->
+  </div>
+  <div class="flex-container collumn">
+    <div class="row calcButton">
+      <input type="button" value="Calculate" onclick="calculate('derivative')">
+    </div>
+    <div class="row calcButton">
+      <input type="button" value="Calculate" onclick="calculate('integral')">
+    </div>
+    <div class="row calcButton">
+      <input type="button" value="Calculate" onclick="calculate('reimannSum')">
+    </div>
+    <div class="row calcButton">
+      <input type="button" value="Calculate" onclick="calculate('trapezoidSum')">
+    </div>
+    <div class="row calcButton">
+      <input type="button" value="Calculate" onclick="calculate('euler')">
+    </div>
+    <div class="row calcButton">
+      <input type="button" value="Calculate" onclick="calculate('minVal')">
+    </div>
+    <div class="row calcButton">
+      <input type="button" value="Calculate" onclick="calculate('maxVal')">
+    </div>
+    <div class="row calcButton">
+      <input type="button" value="Calculate" onclick="calculate('findZeroes')">
+    </div>
+<!--     <div class="row calcButton">
+      <input type="button" value="Calculate" onclick="calculate('intervalInc')">
+    </div>
+    <div class="row calcButton">
+      <input type="button" value="Calculate" onclick="calculate('intervalDec')">
+    </div>
+    <div class="row calcButton">
+      <input type="button" value="Calculate" onclick="calculate('findInter')">
+    </div> -->
+  </div>
+</div>
